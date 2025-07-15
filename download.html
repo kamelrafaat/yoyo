@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل تطبيقات نقل ذكي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation - نفس التصميم الموجود في index.html */
+        nav {
+            background-color: #34495e;
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            height: 40px;
+            display: none;
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+        }
+        
+        .nav-menu li {
+            margin: 0 10px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            background-color: #2c3e50;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Download Section */
+        .download-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .download-title {
+            margin-bottom: 40px;
+        }
+        
+        .download-title h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .download-title p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .download-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .download-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .download-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .download-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        
+        .download-card h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .download-card p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .download-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .development-message {
+            background-color: #f8f9fa;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: right;
+            display: none;
+        }
+        
+        /* Footer - نفس التصميم الموجود في index.html */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .download-title h1 {
+                font-size: 2rem;
+            }
+            
+            .download-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <img src="images/logo.png" alt="شعار النقل الذكي" class="nav-logo">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-menu">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="index.html#services">خدماتنا</a></li>
+                <li><a href="index.html#about">من نحن</a></li>
+                <li><a href="index.html#contact">اتصل بنا</a></li>
+                <li><a href="download.html">تحميل</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="download-title">
+            <h1>تحميل تطبيقات نقل ذكي</h1>
+            <p>اختر التطبيق الذي تريد تحميله للاستفادة من خدماتنا</p>
+        </div>
+        
+        <div class="download-cards">
+            <div class="download-card">
+                <img src="images/driver-app.png" alt="تطبيق السائق">
+                <h2>تطبيق السائق</h2>
+                <p>التطبيق المخصص لسائقي نقل ذكي لإدارة الرحلات وتلقي الطلبات</p>
+                <button class="download-btn" onclick="showMessage()">تحميل التطبيق</button>
+                <div class="development-message" id="driverMessage">
+                    <h3>تطبيق السائق قيد التطوير حالياً</h3>
+                    <p>نعمل بجد على تطوير التطبيق ليكون أفضل تجربة لسائقينا. سنقوم بإرسال إشعار لك عند اكتمال التطوير وإتاحة التطبيق للتحميل.</p>
+                </div>
+            </div>
+            
+            <div class="download-card">
+                <img src="images/driver-app.png" alt="تطبيق العميل">
+                <h2>تطبيق العميل</h2>
+                <p>التطبيق المخصص للعملاء لطلب خدمات النقل ومتابعة الرحلات</p>
+                <button class="download-btn" onclick="showMessage()">تحميل التطبيق</button>
+                <div class="development-message" id="clientMessage">
+                    <h3>تطبيق العميل قيد التطوير حالياً</h3>
+                    <p>نعمل على تقديم أفضل تجربة مستخدم لعملائنا الكرام. سنقوم بإرسال إشعار لك عند اكتمال التطوير وإتاحة التطبيق للتحميل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>عن الشركة</h3>
+                <p>نقل ذكي هي شركة رائدة في مجال حلول النقل الذكية، نقدم خدمات مبتكرة تعتمد على أحدث التقنيات.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>روابط سريعة</h3>
+                <a href="index.html">الرئيسية</a>
+                <a href="index.html#services">خدماتنا</a>
+                <a href="index.html#about">من نحن</a>
+                <a href="index.html#contact">اتصل بنا</a>
+                <a href="download.html">تحميل</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>معلومات الاتصال</h3>
+                <p>الرياض، المملكة العربية السعودية</p>
+                <a href="tel:+966123456789">+966 12 345 6789</a>
+                <a href="mailto:info@naql-thaki.com">info@naql-thaki.com</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2023 نقل ذكي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Show Development Message
+        function showMessage() {
+            const messages = document.querySelectorAll('.development-message');
+            messages.forEach(message => {
+                message.style.display = 'block';
+            });
+            
+            // Scroll to the message
+            messages[0].scrollIntoView({ behavior: 'smooth' });
+            
+            // يمكنك هنا إضافة كود لإرسال بريد إلكتروني أو حفظ البيانات في قاعدة بيانات
+            // لإعلام المستخدم عند اكتمال التطوير
+            alert('شكراً لاهتمامك! سوف نرسل لك إشعاراً عند اكتمال التطوير.');
+        }
+    </script>
+</body>
+</html>
